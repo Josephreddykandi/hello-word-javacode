@@ -1,5 +1,5 @@
 # maven-project
 
-Simple Maven Project
+Simple Maven Project v1.0
 
 added message

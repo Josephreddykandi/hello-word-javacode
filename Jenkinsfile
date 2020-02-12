@@ -12,17 +12,10 @@ node ('win') {
 
 node ('linux') {
    
-    def mvnHome
    stage('Build') {
-      mvnHome = tool 'maven3'
-      // Run the maven build
-      withEnv(["M2_HOME=$mvnHome"]) {
-         if (isUnix()) {
-            sh '"$M2_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
-         } else {
-            bat(/"%M2_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-         }
-      }
+    
+     sh 'mvn clean package'
+     
    }
    stage('Results') {
       junit '**/target/surefire-reports/TEST-*.xml'

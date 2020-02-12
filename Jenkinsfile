@@ -15,7 +15,7 @@ node ('linux') {
    
    
       // Run the maven build
-      withEnv(["M2_HOME=$mvnHome"]) {
+      withEnv(["M2_HOME=/opt/maven"]) {
          if (isUnix()) {
             sh '"$M2_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
          } else {

@@ -1,11 +1,9 @@
 node ('win') {
   
-   stage('Preparation') { // for display purposes
-      // Get some code from a GitHub repository
-      git 'https://github.com/Josephreddykandi/hello-word-javacode.git'
-      // Get the Maven tool.
-      // ** NOTE: This 'M3' Maven tool must be configured
-      // **       in the global configuration.           
+   stage('Preparation') { 
+     //display maven home path
+     
+      bat 'echo %M2_HOME%'     
       
    }
    }
@@ -14,11 +12,7 @@ node ('linux') {
    
    stage('Build') {
     
-     sh 'mvn clean package'
+     sh 'echo $JAVA_HOME'
      
-   }
-   stage('Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archiveArtifacts '**/*.jar'
    }
 }

@@ -1,4 +1,4 @@
-node ('win') {  
+node ('win') {
    def mvnHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
@@ -8,6 +8,9 @@ node ('win') {
       // **       in the global configuration.           
       mvnHome = tool 'maven3'
    }
+   }
+
+node ('linux') {
    stage('Build') {
       // Run the maven build
       withEnv(["M2_HOME=$mvnHome"]) {

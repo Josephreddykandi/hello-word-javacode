@@ -1,17 +1,20 @@
 node ('win') {
-   def mvnHome
+  
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/Josephreddykandi/hello-word-javacode.git'
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
-      mvnHome = tool 'maven3'
+      
    }
    }
 
 node ('linux') {
+   
+    def mvnHome
    stage('Build') {
+      mvnHome = tool 'maven3'
       // Run the maven build
       withEnv(["M2_HOME=$mvnHome"]) {
          if (isUnix()) {

@@ -13,6 +13,6 @@ node ('linux') {
    stage('Build') {
     
      sh 'echo $JAVA_HOME'
-     
+     sh 'ls /home/ansible'
    }
 }
